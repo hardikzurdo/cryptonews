@@ -1,0 +1,21 @@
+ {% extends 'base.html' %}
+
+ {%block content%}
+
+ {% if crypto.Response %}
+    Sorry, {{ quote }} doesn't exist.Please Try with valid Cryptocurrency name.
+  {% endif %}
+
+ {% for key, value in crypto.DISPLAY.items %}
+     <div class="jumbotron">
+           <h1 class="display-4">{{key}}</h1>
+           <strong>Price: </strong>{{ value.USD.PRICE }}<br/>
+           <strong>Daily High: </strong>{{ value.USD.HIGHDAY }}<br/>
+           <strong>Daily Low: </strong>{{ value.USD.LOWDAY }}<br/>
+           <strong>Market Cap: </strong>{{ value.USD.MKTCAP }}<br/>
+           <strong>Last Update: </strong>{{ value.USD.LASTUPDATE }}<br/>
+     </div>
+ {% endfor %}
+
+
+ {% endblock %}
